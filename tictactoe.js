@@ -42,9 +42,17 @@ function Cell() {
 
 function gameState(){
 
+}
+
+function changePlayer(){
 
 }
 
+function userInput(){
+
+}
+
+//winning conditions
 function checkForWin(board) {
     
 }
@@ -53,4 +61,11 @@ function checkForDraw(board) {
     
 }
 
+let PlayerX = {
+    // insert vars
+}
+
+let PlayerO = {
+    // insert vars
+}
 /* goal: https://practical.li/clojure/games/tictactoe-cli/ */
