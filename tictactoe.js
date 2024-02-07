@@ -42,6 +42,11 @@ function Cell() {
 
 function gameState(){
 
+
+    while (!checkForWin(board) && !checkForDraw(board)) {
+        userInput();
+        changePlayer();
+      }
 }
 
 function changePlayer(){
