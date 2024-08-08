@@ -1,30 +1,32 @@
-export default class Board {
+class Board {
     constructor(state = ["","","","","","","","",""]){
-        this.state= state
+        this.state= state;
     }
 
-    printFormattedBoard() {
-        let formattedString = '';
-        this.state.forEach((cell,index) =>{
-            formattedString += cell ? `${cell} |` : '  |';
-            if((index +1) % 3 == 0) {
-                formattedString = formattedString.slice(0,-1)
-                if(index <8) formattedString += '\n\u2015\u2015\u2015 \u2015\u2015\u2015 \u2015\u2015\u2015\n';
-            }
-        });
-        console.log('%c' + formattedString, 'color: #c11dd4;font-size:16px');
-    }
+
+ printFormattedBoard() {
+    let formattedString = '';
+    this.state.forEach((cell,index) =>{
+        formattedString += cell ? `${cell} |` : '  |';
+        if((index +1) % 3 == 0) {
+            formattedString = formattedString.slice(0,-1)
+            if(index <8) formattedString += '\n\u2015\u2015\u2015 \u2015\u2015\u2015 \u2015\u2015\u2015\n';
+        }
+    });
+    console.log('%c' + formattedString, 'color: #c11dd4;font-size:16px');
 }
 
-isEmpty(){
+
+
+ isEmpty() {
     return this.state.every(cell => !cell);
 }
-
-isFull(){
+ isFull() {
     return this.state.every(cell => cell);
 }
 
-isTerminal() {
+ isTerminal() {
+
 	//Return False if board in empty
     if(this.isEmpty()) return false;
     //Checking Horizontal Wins
@@ -65,3 +67,5 @@ isTerminal() {
     //return false otherwise
     return false;
 }
+}
+export default Board
