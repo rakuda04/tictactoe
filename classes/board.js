@@ -67,5 +67,30 @@ class Board {
     //return false otherwise
     return false;
 }
+
+insert(symbol, position){
+    if(![0,1,2,3,4,5,6,7,8].includes(position)){
+        throw new Error('Cell index does not exsist!')
+    }
+    if(!['x','o'].includes(symbol)){
+        throw new Error('the symbol can only be x or o!')
+    }
+    //position is occupied
+    if(this.state[position]){
+        return false;
+    }
+    //sucessfully makes the move
+    this.state[position] = symbol;
+    return true
+}
+
+getAvailableMoves() {
+    const moves = [];
+    this.state.forEach((cell, index) => {
+        if(!cell) moves.push(index);
+    });
+    return moves;
+}
+
 }
 export default Board
